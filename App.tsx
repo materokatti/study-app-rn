@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {quizData} from './data/quizData.js';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -62,10 +63,19 @@ function App(): React.JSX.Element {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Study App TTMIK">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
+          {quizData.map((quiz, index) => {
+            return (
+              <Section key={index} title={quiz.question}>
+                {quiz.answers.map((question, i) => {
+                  return (
+                    <View key={i}>
+                      <Text>{question.answer}</Text>
+                    </View>
+                  );
+                })}
+              </Section>
+            );
+          })}
         </View>
       </ScrollView>
     </SafeAreaView>
