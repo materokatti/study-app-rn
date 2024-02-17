@@ -8,7 +8,7 @@
 
 ## Trouble Shooting
 
-- If you suspect a Pod install related error, clear your cache with the code below.
+- If you suspect a Pod install related error, clear your cache with the code below. (24.02.17)
   ```
   pod cache clean --all
   cd ios
